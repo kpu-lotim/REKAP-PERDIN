@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apliksi REKAP PERDIN-KUL</title>
+    <title>Aplikasi RKH 2026</title>
+    <link rel="manifest" href="manifest.json">
     <style>
-        body {
-            margin: 0;
-        }
-        iframe {
-            display: block;
-            width: 100%; /* Mengisi seluruh lebar viewport */
-            height: 100vh;
-            border: none;
-            background: lightyellow;
-        }
+        body, html { margin:0; padding:0; height:100%; overflow:hidden; }
+        iframe { width:100%; height:100%; border:none; }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec" allow="camera"></iframe>
+    <iframe src="https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec" allow="geolocation; microphone; camera"></iframe>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
