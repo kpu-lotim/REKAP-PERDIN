@@ -3,47 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Aplikasi Perdin KPu-Lotim 2026</title>
-    <!-- Ganti warna tema sesuai keinginanmu -->
-    <meta name="theme-color" content="#ffffff">
+    <title>Aplikasi Rekap Perdin</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        body, html { margin:0; padding:0; height:100%; display: flex; justify-content: center; align-items: center; background-color: #f3f3f3; font-family: sans-serif; }
-        .loader {
-            border: 4px solid #ddd;
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .loading-text { margin-top: 15px; color: #555; }
-        .container { text-align: center; }
+        body, html { margin:0; padding:0; height:100%; overflow:hidden; }
+        iframe { width:100%; height:100%; border:none; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="loader"></div>
-        <div class="loading-text">Membuka Aplikasi...</div>
-    </div>
+    <!-- Perhatikan penambahan ?embedded=true di ujung URL dan atribut sandbox -->
+    <iframe 
+        src="https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec?embedded=true" 
+        sandbox="allow-top-navigation allow-scripts allow-same-origin allow-forms"
+        allow="geolocation; microphone; camera">
+    </iframe>
 
     <script>
-        // 1. Daftarkan Service Worker untuk fitur instalasi PWA
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
-
-        // 2. SOLUSI CERDAS: Alihkan langsung ke Google Script
-        // GANTI "URL_APP_SCRIPT_KAMU" di bawah ini dengan link /exec milikmu yang asli!
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec"; 
-        
-        // Sedikit jeda agar Service Worker sempat mendaftar sebelum pindah halaman
-        setTimeout(() => {
-            window.location.replace(scriptUrl);
-        }, 800); 
     </script>
-
 </body>
 </html>
