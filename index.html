@@ -1,91 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Rekap Perdin</title>
-    <!-- Ganti warna tema ini jika ingin menyesuaikan dengan warna HP -->
-    <meta name="theme-color" content="#ffffff">
+    <title>Aplikasi Perdin KPu-Lotim 2026</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            max-width: 90%;
-            width: 340px;
-        }
-        .icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-        h1 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin: 0 0 10px 0;
-        }
-        p {
-            font-size: 14px;
-            color: #7f8c8d;
-            margin: 0 0 30px 0;
-            line-height: 1.5;
-        }
-        .btn-masuk {
-            display: block;
-            width: 100%;
-            background-color: #e67e22; /* Warna Oranye khas tombol KPU */
-            color: white;
-            padding: 14px 0;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            box-sizing: border-box;
-            box-shadow: 0 4px 6px rgba(230, 126, 34, 0.3);
-            transition: all 0.2s ease;
-        }
-        .btn-masuk:active {
-            transform: scale(0.98);
-            background-color: #d35400;
-        }
+        body, html { margin:0; padding:0; height:100%; overflow:hidden; }
+        iframe { width:100%; height:100%; border:none; }
     </style>
 </head>
 <body>
-
-    <div class="card">
-        <!-- Ikon ini bisa diganti dengan tag <img> logo KPU jika kamu punya link gambarnya -->
-        <div class="icon">📝</div>
-        <h1>REKAP PERDIN</h1>
-        <p>Sistem Rekapitulasi Perjalanan Dinas<br>KPU Kabupaten Lombok Timur</p>
-        
-        <!-- PENTING: Ganti teks URL_APPSCRIPT_KAMU di bawah dengan link /exec milikmu -->
-        <button class="btn-masuk" onclick="window.location.href='https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec'">
-            Masuk ke Aplikasi
-        </button>
-    </div>
-
+    <iframe src="https://script.google.com/macros/s/AKfycbzytXAQQdjTuq4rZiS7RG88g_WNKg7gs5JNuj1tRT57s9eD7XSxoDjk2-s_9CPInS4i/exec" allow="geolocation; microphone; camera"></iframe>
     <script>
-        // Mendaftarkan Service Worker agar tetap bisa diinstal (PWA) di HP
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-            .then(() => console.log("PWA Siap!"))
-            .catch((err) => console.log("PWA Gagal:", err));
+            navigator.serviceWorker.register('sw.js');
         }
     </script>
-
 </body>
 </html>
